@@ -1,47 +1,58 @@
 {
-  "name": "fastify-nextjs",
-  "version": "1.0.0",
-  "description": "Build SSR apps using https://fastify.io and https://nextjs.org. This is a template to get you started",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dannysofftie/fastify-nextjs.git"
-  },
-  "keywords": [
-    "fastify",
-    "fastify-next",
-    "fastify-nextjs"
-  ],
-  "author": "Danny Sofftie",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/dannysofftie/fastify-nextjs/issues"
-  },
-  "homepage": "https://github.com/dannysofftie/fastify-nextjs#readme",
-  "dependencies": {
-    "next": "^9.2.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
-  },
-  "devDependencies": {
-    "@types/enzyme": "^3.10.5",
-    "@types/enzyme-adapter-react-16": "^1.0.6",
-    "@types/jest": "^25.1.2",
-    "@types/node": "^13.7.1",
-    "@types/react": "^16.9.19",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "enzyme-to-json": "^3.4.4",
-    "jest": "^25.1.0",
-    "ts-jest": "^25.2.0",
-    "typescript": "^3.7.5"
-  }
+    "name": "fastify-nextjs",
+    "version": "1.0.0",
+    "description": "Build SSR apps using https://fastify.io and https://nextjs.org. This is a template to get you started",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage",
+        "dev": "next",
+        "build": "next build",
+        "start": "next start"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dannysofftie/fastify-nextjs.git"
+    },
+    "keywords": [
+        "fastify",
+        "fastify-next",
+        "fastify-nextjs"
+    ],
+    "author": "Danny Sofftie",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/dannysofftie/fastify-nextjs/issues"
+    },
+    "homepage": "https://github.com/dannysofftie/fastify-nextjs#readme",
+    "dependencies": {
+        "@ant-design/icons": "^4.1.0",
+        "@apollo/react-hooks": "^3.1.5",
+        "antd": "^4.2.4",
+        "apollo-boost": "^0.4.9",
+        "apollo-link-context": "^1.0.20",
+        "apollo-link-http": "^1.5.17",
+        "graphql": "^15.0.0",
+        "next": "^9.4.1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "ts-node-dev": "^1.0.0-pre.44"
+    },
+    "devDependencies": {
+        "@types/enzyme": "^3.10.5",
+        "@types/enzyme-adapter-react-16": "^1.0.6",
+        "@types/jest": "^25.1.2",
+        "@types/node": "^14.0.1",
+        "@types/react": "^16.9.19",
+        "enzyme": "^3.11.0",
+        "enzyme-adapter-react-16": "^1.15.2",
+        "enzyme-to-json": "^3.4.4",
+        "jest": "^25.1.0",
+        "ts-jest": "^25.2.0",
+        "typescript": "^3.9.2"
+    },
+    "engines": {
+        "node": ">=12.0.0"
+    }
 }

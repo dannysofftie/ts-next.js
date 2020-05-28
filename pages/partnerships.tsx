@@ -1,13 +1,13 @@
-import { Layout } from 'antd';
 import { Fragment } from 'react';
 import Header from '../components/Navbar/Website';
+import { Layout } from 'antd';
 
 export default () => {
     // component logic
 
     return (
         <Fragment>
-            <Header page={2} />
+            <Header page={3} />
             <Layout.Content
                 className='site-layout-background'
                 style={{
@@ -16,7 +16,7 @@ export default () => {
                     minHeight: 280,
                 }}
             >
-                About us
+                Our partners
             </Layout.Content>
         </Fragment>
     );
