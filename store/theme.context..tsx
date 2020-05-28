@@ -47,10 +47,10 @@ export const ThemeContext = createContext<Partial<IThemeProps>>({
 export const ThemeReducer = (state: IThemeState, actions: IThemeActions): IThemeState => {
     switch (actions.type) {
         case 'TO_LIGHT_THEME':
-            return { ...state, ...actions.payload };
+            return { ...state, theme: 'light' };
 
         case 'TO_DARK_THEME':
-            return { ...state, ...actions.payload };
+            return { ...state, theme: 'dark' };
 
         default:
             return state;
