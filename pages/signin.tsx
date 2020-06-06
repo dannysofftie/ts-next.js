@@ -16,7 +16,6 @@ const formParentStyle = {
 const infoBlockStyle = {
     height: '100%',
     display: 'flex',
-    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     color: 'white',
@@ -53,7 +52,7 @@ export default () => {
                                     <Col sm={{ span: 22 }} md={{ span: 18 }} lg={{ span: 14 }}>
                                         <Row style={formParentStyle} className='hoverable'>
                                             <Col xs={{ span: 0 }} md={{ span: 12 }} className='brown-linear-bg' order={2}>
-                                                <section style={infoBlockStyle}>
+                                                <section style={{ ...infoBlockStyle, flexDirection: 'column' }}>
                                                     <Title level={1} className='text-white'>
                                                         Hello friend!
                                                     </Title>
