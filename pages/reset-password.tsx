@@ -1,4 +1,4 @@
-import { FacebookFilled, GoogleOutlined, LockOutlined, MailOutlined, TwitterOutlined } from '@ant-design/icons';
+import { MailOutlined } from '@ant-design/icons';
 import { Button, Col, Divider, Form, Input, Layout, Row } from 'antd';
 import Title from 'antd/lib/typography/Title';
 import Head from 'next/head';
@@ -32,7 +32,7 @@ export default () => {
                     {(userContext) => (
                         <Fragment>
                             <Head>
-                                <title>Sign in to your account</title>
+                                <title>Reset your password</title>
                             </Head>
                             {/* <Header page={1} /> */}
                             <Layout.Content
@@ -42,7 +42,7 @@ export default () => {
                                     minHeight: 280,
                                 }}
                             >
-                                <Row justify='center' align='middle' style={{ minHeight: '80vh' }}>
+                                <Row justify='space-around' align='middle' style={{ minHeight: '80vh' }}>
                                     <Col span={24} style={{ display: 'flex', justifyContent: 'center' }}>
                                         <section>
                                             <Link href='/'>
@@ -52,28 +52,24 @@ export default () => {
                                     </Col>
                                     <Col sm={{ span: 22 }} md={{ span: 18 }} lg={{ span: 14 }}>
                                         <Row style={formParentStyle} className='hoverable'>
-                                            <Col xs={{ span: 0 }} md={{ span: 12 }} className='brown-linear-bg' order={2}>
+                                            <Col xs={{ span: 0 }} md={{ span: 12 }} className='brown-linear-bg'>
                                                 <section style={infoBlockStyle}>
                                                     <Title level={1} className='text-white'>
-                                                        Hello friend!
+                                                        Welcome Back!
                                                     </Title>
-                                                    <p>To keep connected with us, create an account to get started</p>
+                                                    <p>To keep connected with us, sign in with your personal info</p>
                                                     <Button type='ghost' shape='round' size='large'>
-                                                        <Link href='/signup' passHref>
-                                                            <a>Sign Up</a>
+                                                        <Link href='/signin' passHref>
+                                                            <a> Sign In</a>
                                                         </Link>
                                                     </Button>
                                                 </section>
                                             </Col>
-                                            <Col xs={{ span: 20 }} md={{ span: 12 }} style={{ minHeight: '60vh' }} order={1}>
+                                            <Col xs={{ span: 20 }} md={{ span: 12 }} style={{ minHeight: '60vh' }}>
                                                 <section style={{ padding: 60 }}>
-                                                    <Divider orientation='left'>Sign In to your Account</Divider>
-                                                    <section style={{ padding: '40px 0px', display: 'flex', justifyContent: 'space-around' }}>
-                                                        <Button shape='circle' icon={<FacebookFilled />} type='ghost' size='large'></Button>
-                                                        <Button shape='circle' icon={<GoogleOutlined />} type='ghost' size='large'></Button>
-                                                        <Button shape='circle' icon={<TwitterOutlined />} type='ghost' size='large'></Button>
-                                                    </section>
-                                                    <Form form={FormInstance} layout='vertical' name='signinform'>
+                                                    <Divider orientation='left'>Request a password reset</Divider>
+                                                    <p>We will send you an email with a password reset link. Check your email in 5 minutes</p>
+                                                    <Form form={FormInstance} layout='vertical' name='signupform'>
                                                         <Form.Item
                                                             name='email'
                                                             rules={[
@@ -86,29 +82,18 @@ export default () => {
                                                         >
                                                             <Input type='email' placeholder='someone@example.com' prefix={<MailOutlined />} />
                                                         </Form.Item>
-                                                        <Form.Item
-                                                            name='password'
-                                                            rules={[
-                                                                {
-                                                                    type: 'string',
-                                                                    message: 'Password is required',
-                                                                    required: true,
-                                                                },
-                                                            ]}
-                                                        >
-                                                            <Input type='password' placeholder='*********' prefix={<LockOutlined />} />
-                                                        </Form.Item>
+
                                                         <Row>
-                                                            <Col sm={{ span: 24 }} md={{ span: 19 }}>
-                                                                Forgot password? &nbsp;
-                                                                <Link href='/reset-password' passHref>
-                                                                    <a>Reset</a>
+                                                            <Col sm={{ span: 24 }} md={{ span: 14 }}>
+                                                                Encountered error? &nbsp;
+                                                                <Link href='/signin' passHref>
+                                                                    <a>Help</a>
                                                                 </Link>
                                                             </Col>
-                                                            <Col sm={{ span: 24 }} md={{ span: 5 }}>
+                                                            <Col sm={{ span: 24 }} md={{ span: 10 }}>
                                                                 <Form.Item>
                                                                     <Button htmlType='submit' size='large' type='ghost' shape='round' className='brown-linear-bg'>
-                                                                        Sign In
+                                                                        Reset Password
                                                                     </Button>
                                                                 </Form.Item>
                                                             </Col>

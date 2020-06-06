@@ -27,17 +27,18 @@
   },
   "homepage": "https://github.com/dannysofftie/fastify-nextjs#readme",
   "dependencies": {
-    "@ant-design/icons": "^4.1.0",
+    "@ant-design/icons": "^4.2.1",
     "@apollo/react-hooks": "^3.1.5",
-    "antd": "^4.2.4",
+    "@zeit/next-css": "^1.0.1",
+    "antd": "^4.3.1",
     "apollo-boost": "^0.4.9",
-    "apollo-link-context": "^1.0.20",
-    "apollo-link-http": "^1.5.17",
+    "framer-motion": "^1.11.0",
     "graphql": "^15.0.0",
-    "next": "^9.4.1",
+    "next": "^9.4.4",
+    "next-compose-plugins": "^2.2.0",
+    "next-svgr": "^0.0.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "ts-node-dev": "^1.0.0-pre.44"
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@types/enzyme": "^3.10.5",
@@ -50,6 +51,7 @@
     "enzyme-to-json": "^3.4.4",
     "jest": "^25.1.0",
     "ts-jest": "^25.2.0",
+    "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.9.2"
   },
   "engines": {

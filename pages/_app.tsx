@@ -1,12 +1,15 @@
 import 'antd/dist/antd.css';
+import { AnimatePresence } from 'framer-motion';
 import { AppProps } from 'next/app';
-import '../assets/styles/custom.css';
+import '../public/styles/custom.css';
 import { UserContextProvider } from '../store';
 
-export default ({ Component, pageProps }: AppProps) => {
+export default ({ Component, pageProps, router }: AppProps) => {
     return (
-        <UserContextProvider>
-            <Component {...pageProps} />
-        </UserContextProvider>
+        <AnimatePresence exitBeforeEnter>
+            <UserContextProvider>
+                <Component {...pageProps} key={router.route} />
+            </UserContextProvider>
+        </AnimatePresence>
     );
 };

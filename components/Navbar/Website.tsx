@@ -10,25 +10,15 @@ export default (props) => {
                 <a className='logo'>Logo</a>
             </Link>
 
-            <Menu theme='dark' mode='horizontal' defaultSelectedKeys={[`${props.page}`]}>
-                <Menu.Item key='1'>
-                    <Link href='/'>
-                        <a>Home</a>
-                    </Link>
-                </Menu.Item>
+            <Menu mode='horizontal' style={{ textAlign: 'right' }} defaultSelectedKeys={[`${props.page}`]}>
                 <Menu.Item key='2'>
                     <Link href='/about'>
                         <a>About Us</a>
                     </Link>
                 </Menu.Item>
                 <Menu.Item key='3'>
-                    <Link href='/partnerships'>
-                        <a>Partnerships</a>
-                    </Link>
-                </Menu.Item>
-                <Menu.Item key='4' style={{ float: 'right' }}>
                     <Link href='/signin'>
-                        <Button> Sign In</Button>
+                        <Button>Account</Button>
                     </Link>
                 </Menu.Item>
             </Menu>

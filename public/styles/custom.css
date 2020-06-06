@@ -1,0 +1,108 @@
+html,
+body {
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    overflow-x: hidden;
+}
+
+* {
+    transition: 0.4s;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    border-bottom: none;
+}
+
+.header,
+.header * {
+    background: transparent;
+    border: none;
+}
+
+.logo {
+    width: 120px;
+    height: 31px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px 28px 16px 28px;
+    float: left;
+}
+
+.site-layout-background {
+    background: #fff;
+}
+
+.brown-linear-bg {
+    background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+    transition: 1s ease-in-out;
+}
+
+.brown-linear-bg * {
+    color: white;
+}
+
+.brown-linear-bg *:hover {
+    color: black;
+}
+
+.hoverable:hover {
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+.text-white {
+    color: white;
+}
+
+.custom-h1 {
+    font-family: 'Haas Grot Text R Web', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+}
+.description {
+    margin: 20px 0;
+}
+
+section {
+    display: block;
+}
+
+.content-section {
+    box-sizing: border-box;
+    margin-right: auto;
+    margin-left: auto;
+    height: calc(100%);
+    clear: both;
+    padding: 4em;
+}
+
+@media (min-width: 768px) {
+    .content-section {
+        padding: 4em;
+    }
+}
+
+.content-flex-centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.website-footer {
+    padding: 4em;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-links * {
+    margin-top: 10px;
+}

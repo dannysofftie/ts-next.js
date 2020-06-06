@@ -106,3 +106,5 @@ dist
 yarn.lock
 
 build
+
+_next
