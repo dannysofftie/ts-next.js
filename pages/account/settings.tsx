@@ -14,7 +14,7 @@ export default () => {
                     {(userContext) => (
                         <Fragment>
                             <Head>
-                                <title>Account | Dashboard</title>
+                                <title>Account | Settings</title>
                             </Head>
 
                             <DashboardLayout>
@@ -26,17 +26,21 @@ export default () => {
                                             </a>
                                         </Link>
                                     </Breadcrumb.Item>
+                                    <Breadcrumb.Item>
+                                        <Link href='/account/settings' passHref>
+                                            <a>Settings</a>
+                                        </Link>
+                                    </Breadcrumb.Item>
                                 </Breadcrumb>
-
                                 <Row gutter={[10, 10]}>
                                     <Col span={6}>
-                                        <Card>Statistics</Card>
+                                        <Card>Setting 1</Card>
                                     </Col>
                                     <Col span={6}>
-                                        <Card>Account</Card>
+                                        <Card>Setting 2</Card>
                                     </Col>
                                     <Col span={6}>
-                                        <Card>Sales</Card>
+                                        <Card>Setting 3</Card>
                                     </Col>
                                 </Row>
                             </DashboardLayout>

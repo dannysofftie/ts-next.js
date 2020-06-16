@@ -4,7 +4,7 @@ import Title from 'antd/lib/typography/Title';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Fragment } from 'react';
-import { ThemeContext, UserContext } from '../store';
+import { ThemeContext, UserContext } from 'store';
 
 const formParentStyle = {
     border: '0.1px solid rgba(0,0,0,0.1)',

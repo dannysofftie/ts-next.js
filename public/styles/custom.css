@@ -106,3 +106,46 @@ section {
 .footer-links * {
     margin-top: 10px;
 }
+
+/* collapsible side nav */
+@media (max-width: 850px) {
+    .collapsible-sidenav {
+        height: 100%;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 48px;
+        position: fixed;
+        z-index: 2;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition-property: transform, opacity, visibility;
+        transition-duration: 150ms;
+        transition-timing-function: ease-in-out;
+    }
+}
+
+.collapsible-sidenav-logo {
+    margin-bottom: 24px;
+}
+
+.collapsible-sidenav-options {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+
+.collapsible-sidenav-list-items {
+    margin-left: 0;
+    list-style: none;
+    margin-bottom: 32px;
+}

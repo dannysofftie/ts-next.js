@@ -1,18 +1,18 @@
 import { DatabaseOutlined, SearchOutlined, UserAddOutlined, UserSwitchOutlined } from '@ant-design/icons';
 import { Button, Col, Layout, Row } from 'antd';
 import Title from 'antd/lib/typography/Title';
+import { FeaturedCard } from 'components/Cards';
+import Footer from 'components/Footer';
+import Header from 'components/Navbar/Website';
 import Head from 'next/head';
-import { FeaturedCard } from '../components/Cards';
-import Footer from '../components/Footer';
-import Header from '../components/Navbar/Website';
-import { ThemeContext, UserContext } from '../store';
+import { ThemeContext, UserContext } from 'store';
 
 export default () => (
     <ThemeContext.Consumer>
         {(themeContext) => (
             <UserContext.Consumer>
                 {(userContext) => (
-                    <Layout.Content>
+                    <Layout.Content key='about'>
                         <Head>
                             <title>About Us</title>
                         </Head>
@@ -41,16 +41,16 @@ export default () => (
                             <Col span={24}>
                                 <Title level={2}>How we got started</Title>
                             </Col>
-                            <Col span={6}>
-                                <FeaturedCard title='Intial Registration' icon={<UserAddOutlined style={{ fontSize: 80 }} />} description='We registered our company in 1912' />
+                            <Col span={6} style={{ height: '100%' }}>
+                                <FeaturedCard title='Intial Registration' icon={<UserAddOutlined style={{ fontSize: 80 }} />} description='We registered our company in 1912 when no other company was registered' />
                             </Col>
-                            <Col span={6}>
+                            <Col span={6} style={{ height: '100%' }}>
                                 <FeaturedCard title='Director Appointment' icon={<UserSwitchOutlined style={{ fontSize: 80 }} />} description='Our first director was appointed through a non-official way' />
                             </Col>
-                            <Col span={6}>
+                            <Col span={6} style={{ height: '100%' }}>
                                 <FeaturedCard title='Board of Directors' icon={<SearchOutlined style={{ fontSize: 80 }} />} description='Company board of directory and management was formed to streamline operations' />
                             </Col>
-                            <Col span={6}>
+                            <Col span={6} style={{ height: '100%' }}>
                                 <FeaturedCard title='Ariticial Intelligence' icon={<DatabaseOutlined style={{ fontSize: 80 }} />} description='We made Ariticial Intelligence our main product to capture the market' />
                             </Col>
                         </Row>

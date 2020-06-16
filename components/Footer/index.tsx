@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Row, Col, Divider } from 'antd';
+import { Row, Col, Divider, Layout } from 'antd';
 import Link from 'next/link';
 import Title from 'antd/lib/typography/Title';
 
@@ -59,3 +59,12 @@ export default () => (
         </Row>
     </Fragment>
 );
+
+export const DashboardFooter = () => {
+    // component logic here
+    return (
+        <Fragment>
+            <Layout.Footer>Asterisk &copy; {new Date().getFullYear()}</Layout.Footer>
+        </Fragment>
+    );
+};

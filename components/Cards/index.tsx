@@ -23,7 +23,7 @@ export const FeaturedCard = (props) => {
     };
 
     return (
-        <Card>
+        <Card style={{ boxShadow: 'rgba(0,0,0,0.3) 0px 0px 20px', height: '100%' }}>
             <div className='content-flex-centered'>
                 <Title level={3}>{params.title}</Title>
                 <Button style={iconStyle}>{params.icon}</Button>
@@ -33,7 +33,7 @@ export const FeaturedCard = (props) => {
     );
 };
 
-export const CustomCard = (props) => {
+export const StatisticsCard = (props) => {
     // card logic here
 
     return (

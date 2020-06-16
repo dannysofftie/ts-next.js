@@ -3,8 +3,9 @@ import { Button, Col, Divider, Form, Input, Layout, Row } from 'antd';
 import Title from 'antd/lib/typography/Title';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Fragment } from 'react';
-import { ThemeContext, UserContext } from '../store';
+import { ThemeContext, UserContext } from 'store';
 
 const formParentStyle = {
     border: '0.1px solid rgba(0,0,0,0.1)',
@@ -22,7 +23,18 @@ const infoBlockStyle = {
 };
 
 export default () => {
+    const router = useRouter();
+
     const [FormInstance] = Form.useForm();
+
+    const onFinish = (values) => {
+        // do login here
+        router.push('/account');
+    };
+
+    const onFinishFailed = (error) => {
+        console.log(error);
+    };
 
     return (
         <ThemeContext.Consumer>
@@ -64,15 +76,15 @@ export default () => {
                                                     </Button>
                                                 </section>
                                             </Col>
-                                            <Col xs={{ span: 20 }} md={{ span: 12 }} style={{ minHeight: '60vh' }} order={1}>
-                                                <section style={{ padding: 60 }}>
+                                            <Col xs={{ span: 24 }} md={{ span: 12 }} style={{ minHeight: '60vh' }} order={1}>
+                                                <section style={{ padding: 20 }}>
                                                     <Divider orientation='left'>Sign In to your Account</Divider>
                                                     <section style={{ padding: '40px 0px', display: 'flex', justifyContent: 'space-around' }}>
                                                         <Button shape='circle' icon={<FacebookFilled />} type='ghost' size='large'></Button>
                                                         <Button shape='circle' icon={<GoogleOutlined />} type='ghost' size='large'></Button>
                                                         <Button shape='circle' icon={<TwitterOutlined />} type='ghost' size='large'></Button>
                                                     </section>
-                                                    <Form form={FormInstance} layout='vertical' name='signinform'>
+                                                    <Form form={FormInstance} layout='vertical' name='signinform' initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed}>
                                                         <Form.Item
                                                             name='email'
                                                             rules={[
@@ -98,15 +110,15 @@ export default () => {
                                                             <Input type='password' placeholder='*********' prefix={<LockOutlined />} />
                                                         </Form.Item>
                                                         <Row>
-                                                            <Col sm={{ span: 24 }} md={{ span: 19 }}>
+                                                            <Col xs={{ span: 24 }} md={{ span: 19 }}>
                                                                 Forgot password? &nbsp;
                                                                 <Link href='/reset-password' passHref>
                                                                     <a>Reset</a>
                                                                 </Link>
                                                             </Col>
-                                                            <Col sm={{ span: 24 }} md={{ span: 5 }}>
+                                                            <Col xs={{ span: 24 }} md={{ span: 5 }}>
                                                                 <Form.Item>
-                                                                    <Button htmlType='submit' size='large' type='ghost' shape='round' className='brown-linear-bg'>
+                                                                    <Button htmlType='submit' size='middle' shape='round' className='brown-linear-bg'>
                                                                         Sign In
                                                                     </Button>
                                                                 </Form.Item>

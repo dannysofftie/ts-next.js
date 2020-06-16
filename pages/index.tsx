@@ -1,18 +1,18 @@
 import { DatabaseOutlined, SearchOutlined, UserAddOutlined, UserSwitchOutlined } from '@ant-design/icons';
 import { Button, Col, Layout, Row } from 'antd';
 import Title from 'antd/lib/typography/Title';
+import { FeaturedCard } from 'components/Cards';
+import Footer from 'components/Footer';
+import Header from 'components/Navbar/Website';
 import Head from 'next/head';
-import { FeaturedCard } from '../components/Cards';
-import Footer from '../components/Footer';
-import Header from '../components/Navbar/Website';
-import { ThemeContext, UserContext } from '../store';
+import { ThemeContext, UserContext } from 'store';
 
 export default () => (
     <ThemeContext.Consumer>
         {(themeContext) => (
             <UserContext.Consumer>
                 {(userContext) => (
-                    <Layout.Content>
+                    <Layout.Content key='index'>
                         <Head>
                             <title>Development revamped</title>
                         </Head>
@@ -73,6 +73,24 @@ export default () => (
                             </Col>
                         </Row>
 
+                        {/* partners cards */}
+                        <Row className='content-section' gutter={[20, 20]} align='middle'>
+                            <Col span={24}>
+                                <Title level={2}>Our partners</Title>
+                            </Col>
+                            <Col span={6}>
+                                <FeaturedCard title='Membership Registration' icon={<UserAddOutlined style={{ fontSize: 80 }} />} description='Register your clients with ease, now simplified than ever' />
+                            </Col>
+                            <Col span={6}>
+                                <FeaturedCard title='Networking' icon={<UserSwitchOutlined style={{ fontSize: 80 }} />} description='Membership networking has never been easier. With this release ...' />
+                            </Col>
+                            <Col span={6}>
+                                <FeaturedCard title='Polls & Surveys' icon={<SearchOutlined style={{ fontSize: 80 }} />} description='Run & conduct your product surveys from within the application ...' />
+                            </Col>
+                            <Col span={6}>
+                                <FeaturedCard title='Business Intelligence' icon={<DatabaseOutlined style={{ fontSize: 80 }} />} description='Understand your data in a simple and precise way, we handle the complex stuff for you' />
+                            </Col>
+                        </Row>
                         {/* footer */}
                         <Footer />
                     </Layout.Content>
