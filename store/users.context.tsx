@@ -33,9 +33,11 @@ export const UserContext = createContext<Partial<IUserProps>>({
 
 export const UserReducer = (state: IUserState, action: IUserActions): IUserState => {
     switch (action.type) {
-        case 'ADD_USER':
-            // send user to api, and update local state
-            return { ...state, user: { ...action.payload } };
+        case 'SIGNIN_USER':
+            return { ...state, ...action.payload };
+
+        case 'SIGNOUT_USER':
+            return { ...UserInitialState };
 
         default:
             return state;

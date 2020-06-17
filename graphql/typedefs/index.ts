@@ -1,14 +1,13 @@
-import { gql, DocumentNode } from 'apollo-boost';
-import { GraphQLSchema } from './schema';
-// type definitions for queries and mutations here
+import { DocumentNode, gql } from 'apollo-boost';
+
 export interface IGraphQLTypes {
-    ADD_USER: DocumentNode;
+    SIGNIN_USER: DocumentNode;
     FETCH_USERS: DocumentNode;
 }
 
 export const GraphQLTypes: IGraphQLTypes = {
-    ADD_USER: gql`
-        mutation addNewUser($input: ${GraphQLSchema.USER_SCHEMA}!) {
+    SIGNIN_USER: gql`
+        mutation addNewUser($input: User!) {
             addNewUser(input: $input) {
                 id
                 name

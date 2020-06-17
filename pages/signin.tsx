@@ -27,9 +27,18 @@ export default () => {
 
     const [FormInstance] = Form.useForm();
 
-    const onFinish = (values) => {
-        // do login here
-        router.push('/account');
+    const signinUser = async (values) => {
+        // make API request to sign in user
+        const user = {
+            id: '518yr8hu94hgng438juji4ijf32',
+            email: values['email'],
+            password: values['password'],
+            name: 'Jessica Pearson',
+            avatar: '/images/icons8-user-80.png',
+            token: '55236667980032ih4unr08uhyfrmkvfoijuhinjml3908rhunviki39058uhyi4ki.98y438f9ruey7huji0uyhnfir8g.u7y6537ur9878gyhbiu3ghybnjf2',
+        };
+
+        return user;
     };
 
     const onFinishFailed = (error) => {
@@ -84,7 +93,43 @@ export default () => {
                                                         <Button shape='circle' icon={<GoogleOutlined />} type='ghost' size='large'></Button>
                                                         <Button shape='circle' icon={<TwitterOutlined />} type='ghost' size='large'></Button>
                                                     </section>
-                                                    <Form form={FormInstance} layout='vertical' name='signinform' initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed}>
+                                                    <Form
+                                                        form={FormInstance}
+                                                        layout='vertical'
+                                                        name='signinform'
+                                                        initialValues={{ remember: true }}
+                                                        onFinish={async (values) => {
+                                                            const response = await signinUser(values);
+                                                            // on successfull sign in, we receive user details and an auth token
+
+                                                            if (!response.token) {
+                                                                // throw an error message, user does not exist, or wrong password
+                                                                return false;
+                                                            }
+
+                                                            localStorage.setItem('token', response.token);
+
+                                                            // remove token from response
+                                                            delete response.token;
+
+                                                            // write user account details to localStorage for persistence
+                                                            localStorage.setItem('account', JSON.stringify(response, null, 2));
+
+                                                            // update context
+                                                            userContext.dispatch({
+                                                                type: 'SIGNIN_USER',
+                                                                payload: {
+                                                                    authenticated: true,
+                                                                    token: localStorage.getItem('token'),
+                                                                    user: response,
+                                                                },
+                                                            });
+
+                                                            // redirect to dashboard
+                                                            return router.push('/account');
+                                                        }}
+                                                        onFinishFailed={onFinishFailed}
+                                                    >
                                                         <Form.Item
                                                             name='email'
                                                             rules={[

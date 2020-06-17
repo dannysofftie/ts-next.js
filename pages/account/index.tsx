@@ -1,10 +1,10 @@
-import DashboardLayout from 'components/Layouts/Dashboard';
-import { ThemeContext, UserContext } from 'store';
-import { Breadcrumb, Card, Row, Col } from 'antd';
 import { DashboardOutlined } from '@ant-design/icons';
+import { Breadcrumb, Card, Col, Row } from 'antd';
+import RequiresAuth from 'components';
+import DashboardLayout from 'components/Layouts/Dashboard';
 import Head from 'next/head';
-import { Fragment } from 'react';
 import Link from 'next/link';
+import { ThemeContext, UserContext } from 'store';
 
 export default () => {
     return (
@@ -12,7 +12,7 @@ export default () => {
             {(themeContext) => (
                 <UserContext.Consumer>
                     {(userContext) => (
-                        <Fragment>
+                        <RequiresAuth userContext={userContext}>
                             <Head>
                                 <title>Account | Dashboard</title>
                             </Head>
@@ -40,7 +40,7 @@ export default () => {
                                     </Col>
                                 </Row>
                             </DashboardLayout>
-                        </Fragment>
+                        </RequiresAuth>
                     )}
                 </UserContext.Consumer>
             )}

@@ -1,4 +1,4 @@
-import { Menu, Layout, Button } from 'antd';
+import { Layout, Menu } from 'antd';
 import Link from 'next/link';
 
 export default (props) => {
@@ -18,7 +18,12 @@ export default (props) => {
                 </Menu.Item>
                 <Menu.Item key='3'>
                     <Link href='/signin'>
-                        <Button>Account</Button>
+                        <a>Sign In</a>
+                    </Link>
+                </Menu.Item>
+                <Menu.Item key='4'>
+                    <Link href='/account'>
+                        <a>Dashboard</a>
                     </Link>
                 </Menu.Item>
             </Menu>
