@@ -1,15 +1,13 @@
-import { useRouter } from 'next/router';
-import { useEffect, Fragment } from 'react';
 import { Spin } from 'antd';
 import Head from 'next/head';
+import { Fragment, useEffect } from 'react';
 
-export default function SignOut() {
-    const router = useRouter();
-
+const SignOut = () => {
     useEffect(() => {
         localStorage.removeItem('account');
         localStorage.removeItem('token');
-        router.push('/');
+
+        window.location.href = '/';
     });
 
     return (
@@ -22,4 +20,6 @@ export default function SignOut() {
             </section>
         </Fragment>
     );
-}
+};
+
+export default SignOut;

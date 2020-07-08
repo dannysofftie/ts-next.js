@@ -1,24 +1,25 @@
 import { DashboardOutlined } from '@ant-design/icons';
 import { Breadcrumb, Card, Col, Row } from 'antd';
-import DashboardLayout from 'components/Layouts/Dashboard';
+import ProfileLayout from 'components/Layouts/Profile';
+import { initApolloClient } from 'graphql/client';
+import { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Fragment } from 'react';
-import { initApolloClient } from 'graphql/client';
 
-const Account = () => {
+const Profile: NextPage = () => {
     return (
         <Fragment>
             <Head>
-                <title>Account | Dashboard</title>
+                <title>Profile | Dashboard</title>
             </Head>
 
-            <DashboardLayout>
+            <ProfileLayout>
                 <Breadcrumb separator='>' style={{ marginBottom: 10 }}>
                     <Breadcrumb.Item>
-                        <Link href='/account' passHref>
+                        <Link href='/profile' passHref>
                             <a>
-                                <DashboardOutlined /> Dashboard
+                                <DashboardOutlined /> Profile
                             </a>
                         </Link>
                     </Breadcrumb.Item>
@@ -35,12 +36,12 @@ const Account = () => {
                         <Card>Sales</Card>
                     </Col>
                 </Row>
-            </DashboardLayout>
+            </ProfileLayout>
         </Fragment>
     );
 };
 
-Account.getInitialProps = (ctx) => {
+Profile.getInitialProps = (ctx) => {
     // fetch data and return
     const apolloClient = initApolloClient();
 
@@ -60,4 +61,4 @@ Account.getInitialProps = (ctx) => {
     };
 };
 
-export default Account;
+export default Profile;

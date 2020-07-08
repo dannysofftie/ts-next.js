@@ -1,9 +1,11 @@
-import { IUser, IUserProps } from 'store';
-import { Fragment, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { Fragment, useContext, useEffect } from 'react';
+import { IUser, UserContext } from 'store';
 
-export default function RequiresAuth({ userContext, children }: { userContext: Partial<IUserProps>; children: any[] }) {
+export default function RequiresAuth({ children }) {
     const router = useRouter();
+
+    const userContext = useContext(UserContext);
 
     // we use useEffect here to run execute this logic only when the component mounts,
     // this is to prevent ssr since localStorage is only defined in browsers

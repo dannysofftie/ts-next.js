@@ -3,13 +3,7 @@ import { IThemeActions } from './actions';
 
 export type Theme = 'dark' | 'light';
 
-export interface Dark {
-    text: string;
-    body: string;
-    background: string;
-}
-
-export interface Light {
+export interface IThemeValues {
     text: string;
     body: string;
     background: string;
@@ -17,22 +11,23 @@ export interface Light {
 
 export interface IThemeState {
     theme: Theme;
-    dark: Dark;
-    light: Light;
+    values?: IThemeValues;
 }
+
+const darkState = {
+    text: 'black',
+    body: 'white',
+    background: 'gray',
+};
+
+const lightState = {
+    text: 'white',
+    body: 'lightgray',
+    background: 'gray',
+};
 
 export const ThemeInitialState: IThemeState = {
     theme: 'light',
-    dark: {
-        text: 'black',
-        body: 'white',
-        background: 'gray',
-    },
-    light: {
-        text: 'white',
-        body: 'lightgray',
-        background: 'gray',
-    },
 };
 
 export interface IThemeProps {
@@ -47,10 +42,10 @@ export const ThemeContext = createContext<Partial<IThemeProps>>({
 export const ThemeReducer = (state: IThemeState, actions: IThemeActions): IThemeState => {
     switch (actions.type) {
         case 'TO_LIGHT_THEME':
-            return { ...state, theme: 'light' };
+            return { theme: 'light', values: lightState };
 
         case 'TO_DARK_THEME':
-            return { ...state, theme: 'dark' };
+            return { theme: 'dark', values: darkState };
 
         default:
             return state;

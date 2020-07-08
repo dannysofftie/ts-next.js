@@ -1,3 +1,92 @@
+@import '~antd/dist/antd.less';
+
+@font-family: 'NoirPro', sans-serif;
+@primary-color: #1765ad;
+@layout-header-height: 40px;
+@border-radius-base: 2px;
+@font-size-base: 13px;
+@layout-header-background: #003366;
+@box-shadow-base: rgba(0, 0, 0, 0.2) 0 0 10px;
+@border-radius-base: 13px;
+
+/* route progress indicator */
+/* Make clicks pass-through */
+#nprogress {
+    pointer-events: none;
+}
+
+#nprogress .bar {
+    background: #0c0057;
+    position: fixed;
+    z-index: 1031;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+    display: block;
+    position: absolute;
+    right: 0px;
+    width: 100px;
+    height: 100%;
+    box-shadow: 0 0 10px #0c0057, 0 0 5px #b5b0d4;
+    opacity: 1;
+    -webkit-transform: rotate(3deg) translate(0px, -4px);
+    -ms-transform: rotate(3deg) translate(0px, -4px);
+    transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+    display: block;
+    position: fixed;
+    z-index: 1031;
+    top: 15px;
+    right: 15px;
+}
+
+#nprogress .spinner-icon {
+    width: 18px;
+    height: 18px;
+    box-sizing: border-box;
+    border: solid 2px transparent;
+    border-top-color: #0c0057;
+    border-left-color: #0c0057;
+    border-radius: 50%;
+    -webkit-animation: nprogress-spinner 400ms linear infinite;
+    animation: nprogress-spinner 400ms linear infinite;
+}
+
+.nprogress-custom-parent {
+    overflow: hidden;
+    position: relative;
+}
+
+.nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .bar {
+    position: absolute;
+}
+
+@-webkit-keyframes nprogress-spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes nprogress-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 html,
 body {
     background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -14,12 +103,12 @@ body {
     z-index: 999;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
     border-bottom: none;
+    height: auto;
 }
 
 .header,
 .header * {
-    background: transparent;
-    border: none;
+    background: white;
 }
 
 .logo {
@@ -28,10 +117,6 @@ body {
     background: rgba(255, 255, 255, 0.2);
     margin: 16px 28px 16px 28px;
     float: left;
-}
-
-.site-layout-background {
-    background: #fff;
 }
 
 .brown-linear-bg {
@@ -80,12 +165,6 @@ section {
     padding: 4em;
 }
 
-@media (min-width: 768px) {
-    .content-section {
-        padding: 4em;
-    }
-}
-
 .content-flex-centered {
     display: flex;
     flex-direction: column;
@@ -105,23 +184,6 @@ section {
 
 .footer-links * {
     margin-top: 10px;
-}
-
-/* collapsible side nav */
-@media (max-width: 850px) {
-    .collapsible-sidenav {
-        height: 100%;
-        background-color: white;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 48px;
-        position: fixed;
-        z-index: 2;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        transition-property: transform, opacity, visibility;
-        transition-duration: 150ms;
-        transition-timing-function: ease-in-out;
-    }
 }
 
 .collapsible-sidenav-logo {

@@ -1,13 +1,9 @@
-import { LogoutOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
+import { ClientSiderMenuItems } from 'components/Layouts/Menu';
 import Link from 'next/link';
-import { v4 as uuidv4 } from 'uuid';
-import { AdminSiderMenuItems } from '../Menu';
-import { useState } from 'react';
 
 export default () => {
     // component logic
-    const [selectedItem, selectMenuItem] = useState(null);
 
     const onSidebarCollapse = () => {
         //
@@ -18,28 +14,23 @@ export default () => {
     };
 
     return (
-        <Layout.Sider width={200} style={{ minHeight: '100%', boxShadow: 'rgba(0,0,0,0.3) 0px 0px 20px' }} theme='dark' collapsible>
+        <Layout.Sider width={200} style={{ minHeight: '100%' }} theme='light'>
             <section style={{ padding: '20px 20px 50px' }}>
-                <LogoutOutlined color='white' />
+                <Link href={`/profile`} as={`/profile`} passHref>
+                    <a>User name</a>
+                </Link>
+                <p>+254 720 111 111</p>
             </section>
 
-            <Menu
-                theme='dark'
-                mode='inline'
-                defaultSelectedKeys={[selectedItem]}
-                style={{ height: '100%', borderRight: 0 }}
-                onSelect={(e) => {
-                    selectMenuItem(e.key);
-                }}
-            >
-                {AdminSiderMenuItems.map((item) => {
+            <Menu theme='light' style={{ minHeight: '100%', borderRight: 0 }} mode='inline' defaultSelectedKeys={['account']} defaultOpenKeys={['accountsettings']}>
+                {ClientSiderMenuItems.map((item) => {
                     // manipulate items here
                     return (
-                        <Menu.ItemGroup key={uuidv4()} title={item.title}>
+                        <Menu.ItemGroup key={item.key} title={item.title}>
                             {item.items.map((subItem) => {
                                 // manipulate sub menu items here
                                 return (
-                                    <Menu.Item key={uuidv4()}>
+                                    <Menu.Item>
                                         <Link passHref as={subItem.link} href={subItem.link}>
                                             <a>
                                                 {subItem.icon} <span>{subItem.text}</span>
