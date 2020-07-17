@@ -4,7 +4,8 @@ import Title from 'antd/lib/typography/Title';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Fragment, useContext } from 'react';
-import { UserContext } from 'store';
+import { sharedValues, UserContext } from 'store';
+import { getCookie, setCookie } from 'utils';
 
 const formParentStyle = {
     border: '0.1px solid rgba(0,0,0,0.1)',
@@ -102,20 +103,19 @@ const SignIn = () => {
                                                 return false;
                                             }
 
-                                            localStorage.setItem('token', response.token);
-
+                                            setCookie({ key: sharedValues.userToken, value: response.token, expires: 24 * 31 });
                                             // remove token from response
                                             delete response.token;
 
-                                            // write user account details to localStorage for persistence
-                                            localStorage.setItem('account', JSON.stringify(response, null, 2));
+                                            // write user account details to cookies for persistence
+                                            setCookie({ key: sharedValues.userAccount, value: JSON.stringify(response), expires: 24 * 31 });
 
                                             // update context
                                             userContext.dispatch({
                                                 type: 'SIGNIN_USER',
                                                 payload: {
                                                     authenticated: true,
-                                                    token: localStorage.getItem('token'),
+                                                    token: getCookie(sharedValues.userToken),
                                                     user: response,
                                                 },
                                             });

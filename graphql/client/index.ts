@@ -1,41 +1,13 @@
 import { ApolloClient, InMemoryCache, NormalizedCacheObject } from '@apollo/client';
 import { useMemo } from 'react';
-
-const readFromCookies = (key: string) => {
-    if (typeof window === 'undefined') {
-        return {};
-    }
-
-    const c = decodeURIComponent(document.cookie);
-    let d: string | string[];
-
-    const e = {};
-    if (c.length < 1) {
-        return false;
-    }
-    if (c.indexOf(';') !== -1) {
-        d = c.split(';');
-    } else {
-        d = c;
-    }
-
-    if (typeof d === 'string') {
-        e[d.split('=')[0].trim()] = d.split('=')[1].trim();
-    } else {
-        d.map((p) => (e[p.split('=')[0].trim()] = p.split('=')[1].trim()));
-    }
-
-    if (typeof key !== 'undefined') {
-        return e[key];
-    }
-    return e;
-};
+import { sharedValues } from 'store';
+import { getCookie } from 'utils';
 
 // On the client, we store the Apollo Client in the following variable.
 // This prevents the client from reinitializing between page transitions.
 let apolloClient: ApolloClient<NormalizedCacheObject> = null;
 
-const token = readFromCookies('token');
+const token = getCookie(sharedValues.userToken);
 
 export const createApolloClient = (initialstate?: NormalizedCacheObject) => {
     return new ApolloClient({
@@ -74,6 +46,6 @@ export function initApolloClient(initialState?: NormalizedCacheObject) {
     return client;
 }
 
-export function useApollo(initialState) {
+export function useApollo(initialState?: NormalizedCacheObject) {
     return useMemo(() => initApolloClient(initialState), [initialState]);
 }
