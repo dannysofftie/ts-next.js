@@ -4,7 +4,6 @@ import DashboardLayout from 'components/Layouts/Dashboard';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Fragment } from 'react';
-import { initApolloClient } from 'graphql/client';
 
 const Orders = () => {
     return (
@@ -45,22 +44,8 @@ const Orders = () => {
 };
 
 Orders.getInitialProps = (ctx) => {
-    // fetch data and return
-    const apolloClient = initApolloClient();
-
-    // const initialState = apolloClient.query({
-    //     query: gql`
-    //         query data {
-    //             name
-    //         }
-    //     `,
-    // });
-
     return {
         requiresAuth: true,
-        props: {
-            // initialState,
-        },
     };
 };
 

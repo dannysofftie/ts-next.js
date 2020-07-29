@@ -1,7 +1,6 @@
 import { DashboardOutlined } from '@ant-design/icons';
 import { Breadcrumb, Card, Col, Row } from 'antd';
 import ProfileLayout from 'components/Layouts/Profile';
-import { initApolloClient } from 'graphql/client';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -42,22 +41,8 @@ const Profile: NextPage = () => {
 };
 
 Profile.getInitialProps = (ctx) => {
-    // fetch data and return
-    const apolloClient = initApolloClient();
-
-    // const initialState = apolloClient.query({
-    //     query: gql`
-    //         query data {
-    //             name
-    //         }
-    //     `,
-    // });
-
     return {
         requiresAuth: true,
-        props: {
-            // initialState,
-        },
     };
 };
 

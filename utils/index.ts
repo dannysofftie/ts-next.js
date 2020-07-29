@@ -75,12 +75,8 @@ export const setCookie = (opts: ICookie) => {
  *
  * @param {string} key - key to read from cookies
  */
-export const getCookie = (key: string) => {
-    if (typeof window === 'undefined') {
-        return {};
-    }
-
-    const c = decodeURIComponent(document.cookie);
+export const getCookie = (key: string, cookieString: string = '') => {
+    const c = decodeURIComponent(typeof window === 'undefined' ? cookieString : document.cookie);
     let d: string | string[];
 
     const e = {};
@@ -105,3 +101,14 @@ export const getCookie = (key: string) => {
 
     return e;
 };
+
+/**
+ * Delete a cookie from browser cookies
+ *
+ * @export
+ * @param {string} cookie
+ * @returns
+ */
+export function deleteCookie(cookie: string) {
+    return (document.cookie = `${cookie}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`);
+}
